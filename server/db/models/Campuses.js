@@ -10,10 +10,12 @@ const Campuses = db.define('campuses',{
         notEmpty: true
     },
     imageUrl:{
-        type: Sequelize.VIRTUAL,
-        get(){
-            return `../../api/campuses/${this.id}/image`
-        }
+        type: Sequelize.STRING,
+        // get(){
+        //     return `../../api/campuses/${this.id}/image`
+        // }
+        defaultValue: 'https://upload.wikimedia.org/wikipedia/en/4/44/Welcome_to_Sunnydale_%28Buffy_screenshot%29.jpg'
+
     },
     description:{
         type: Sequelize.STRING(5000),

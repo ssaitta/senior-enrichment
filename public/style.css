@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    background: maroon;
+    padding-bottom: 56px; 
+}  
+
+#main{
+    padding-left:0;
+    color: rgb(255, 197, 73);
+}
+
+.footer{
+    position: fixed;
+    background-color: rgba(255, 162, 0, 0.904);
+    bottom:0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 145, 0, 0.733);
+
+
+}
+
+.campus img{
+    height: 200px;
+}

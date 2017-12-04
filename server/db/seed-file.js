@@ -1,73 +1,81 @@
-const Promise = require('bluebird')
 const db = require('./index.js')
 const {Students, Campuses} = require('./models')
 
-var data= {
-    students: [
+const students = [
         {
             first_name: "Buffy",
             last_name: "Summers",
             email: "queenB@hotmail.com",
-            gpa: 3.0
+            gpa: 3.0,
+            campusId: 2
         },
         {
             first_name: "Xander",
             last_name: "Harris",
             email: "X_man9999@yahoo.com",
-            gpa: 2.8
+            gpa: 2.8,
+            campusId: 3
         },
         {
             first_name: "Willow",
             last_name: "Rosenberg",
             email: "WRosenburg@sunnydalehigh.com",
-            gpa: 4.0
+            gpa: 4.0,
+            campusId: 2
         },
         {
             first_name: "Cordelia",
             last_name: "Chase",
             email: "Cordettes1@hotmail.com",
-            gpa: 3.1 
+            gpa: 3.1,
+            campusId: 5
         },
         {
             first_name: "Anya",
             last_name: "Jenkins",
             email: "human12345@aol.com",
-            gpa: 2.0
+            gpa: 2.0,
+            campusId: 1
         },
         {
             first_name:"Jonathan",
             last_name: "Levinson",
             email: "theTrio4Ever@aol.com",
-            gpa: 3.8
+            gpa: 3.8,
+            campusId: 1
         },
         {
             first_name:"Dawn",
             last_name: "Summers",
             email: "misunderstood@yahoo.com",
-            gpa: 3.8
+            gpa: 3.8,
+            campusId: 3
         },
         {
             first_name:"Warren",
             last_name: "Mears",
             email: "robotlover@aol.com",
-            gpa: 3.8
+            gpa: 3.8,
+            campusId: 4
         },
         {
             first_name:"Andrew",
             last_name: "Wells",
             email: "TheDarkSide42@aol.com",
-            gpa: 3.8
+            gpa: 3.8,
+            campusId: 4
         },
         {
             first_name:"Faith",
             last_name: "Lehane",
             email: "AscensionOrBust@hotmail.com",
-            gpa: 3.8
+            gpa: 3.8,
+            campusId: 5
         }
 
 
-    ],
-    campuses:[
+    ]
+const campuses =[
         {
             name:"Quad",
             imageUrl:"https://vignette3.wikia.nocookie.net/buffy/images/2/28/Sunnydale_high_school_quad_overhead_shot.jpg/revision/latest?cb=20131001073105",
@@ -95,26 +103,29 @@ var data= {
             description: "The gymnasium was where indoor sports events were held such as the basket ball matches with other schools. Cheerleading practice and auditions were held in the gym, where in one of these auditions Amber Grove's hands combusted when she was cursed by a witch. and Dawn Summers made a disastrous performance"
         }
     ]
-}
+
+
+const seed = ()=>
+    Promise.all(campuses.map(campus => 
+        Campuses.create(campus))
+    )
+.then(()=>
+    Promise.all(students.map(student =>
+        Students.create(student))
+))
+
+    
 
 db.sync({force: true})
 .then(()=>{
     console.log("Dropped old data, seeding the database with new data")
-    return Promise.map(Object.keys(data),(name)=>{
-        console.log('name: ',name)
-        //map each keys of data (the names of our models) 
-        return Promise.map(data[name],(record)=>{
-            //console.log('record: ', record)
-            //map each object containing a single record into a model.create
-            return db.model(name).create(record)
-            console.log(db.model(name))
-        })
+    return seed();
+})
+.catch(err=>{
+    console.log(err.message)
+})
+.then(()=>{
+    db.close()
+    return null
     })
-})
-.then(()=>console.log("Finished instering data"))
-.catch(err=>console.error("There was an error", err.message))
-.finally(()=>{
-    db.close();
-    console.log("connection closed")
-    return null;
-})
+    
