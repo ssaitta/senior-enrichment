@@ -25,9 +25,9 @@ export default class Campuses extends Component{
             <div>
                 <h1>Welcome to Sunnydale High!</h1>
                 {campuses.map(campus =>(
-                    <div>
+                    <div key={campus.id} className="CampusImages">
+                        <h5 className="CampusName"><span>{campus.name}</span></h5>
                         <img src={campus.imageUrl}/>
-                        <h5><span>{campus.name}</span></h5>
                     </div>
                 ))}    
             </div>

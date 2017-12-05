@@ -102,6 +102,7 @@ const campuses =[
             imageUrl:"https://vignette1.wikia.nocookie.net/buffy/images/b/ba/Sunnydale_high_school_new_gym.jpg/revision/latest?cb=20131001043623",
             description: "The gymnasium was where indoor sports events were held such as the basket ball matches with other schools. Cheerleading practice and auditions were held in the gym, where in one of these auditions Amber Grove's hands combusted when she was cursed by a witch. and Dawn Summers made a disastrous performance"
         }
+
     ]
 
 

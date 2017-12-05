@@ -14,7 +14,7 @@ import Footer from './components/Footer'
 render (
   <Provider store={store}>
     <Router>
-      <div>
+      <div className="Campuses">
         <div className="nav-bar">
         <Route exact path="/campuses" component={Campuses}/>
         </div>
