@@ -10,17 +10,17 @@ import store from './store'
 import Campuses from './components/Campuses'
 import Students from './components/Students'
 import Footer from './components/Footer'
+import Navigation from './components/Navigation'
 
 render (
   <Provider store={store}>
     <Router>
-      <div className="Campuses">
-        <div className="nav-bar">
+      <div>
+        <header>
+          <Navigation />
+        </header>
         <Route exact path="/campuses" component={Campuses}/>
-        </div>
-        <div>
           <Campuses />
-        </div>
           <Footer />
       </div>
     </Router>

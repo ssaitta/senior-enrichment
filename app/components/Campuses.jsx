@@ -22,12 +22,15 @@ export default class Campuses extends Component{
         const campuses = this.state.campuses
 
         return(
-            <div>
+            <div className="Campuses">
+                {/*<img src={require(`../../public/images/bigLogo.jpg`)} /> */}
                 <h1>Welcome to Sunnydale High!</h1>
+
                 {campuses.map(campus =>(
                     <div key={campus.id} className="CampusImages">
                         <h5 className="CampusName"><span>{campus.name}</span></h5>
                         <img src={campus.imageUrl}/>
+                        <p>{campus.description}</p>
                     </div>
                 ))}    
             </div>
