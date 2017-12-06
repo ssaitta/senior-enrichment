@@ -21,23 +21,6 @@ header {
     height: 3.2%;
 }
 
-.nav-bar{
-    display: flex;
-    width: 20%;
-    justify-content: space-around;
-}
-
-.nav-item{
-    border-radius: 10%;
-    border: black;
-    background-color: rgba(255, 154, 21, 0.822);
-    font-size: 1.2em;
-    color: rgb(105, 31, 31);
-    text-decoration: none;
-    width: 82px;
-    text-align: center;
-}
-
 #main{
     padding-left:0;
     color: rgb(255, 157, 21);
@@ -59,9 +42,29 @@ header {
     width: 100vw;
     border-top: 1px solid rgba(255, 145, 0, 0.733);
     text-decoration:none;
-
-
 }
+
+/* Navigation style */
+
+.nav-bar{
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+}
+
+.nav-item{
+    border-radius: 10%;
+    border: black;
+    background-color: rgba(255, 154, 21, 0.822);
+    font-size: 1.2em;
+    color: rgb(105, 31, 31);
+    text-decoration: none;
+    width: 82px;
+    text-align: center;
+}
+
+
+/* Home page image */
 
 .headImage{
     display: flex;
@@ -72,13 +75,12 @@ header {
     border-radius: 0 0 1em 1em;
 }
 
+/* Campus page */
 
 .Campuses {
     display: flex;
     flex-direction: column;
-    /*flex-wrap: wrap; */
     width:100vw;
-    /* height:250px; */
     margin: 1.5em;
     justify-content: center;
 }
@@ -101,4 +103,31 @@ header {
 
 .CampusImages > img{
     height: 250px;
+}
+
+/* Students page Table */
+
+/* .Student-table{
+    border-bottom: solid;
+
+} */
+
+.Student-table{
+    margin-left: 350px
+}
+
+th{
+    padding: 20px;
+    text-align: center;
+    /* border-bottom: 1px solid #ddd; */
+}
+/* tr {
+    padding: 20px;
+    border-top: 1px solid white;
+} */
+
+td{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid;
 }

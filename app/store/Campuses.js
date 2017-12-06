@@ -28,8 +28,7 @@ export function fetchCampuses(){
 
 export default function CampusesReducer(state = [],action){
     if(action.type === GET_CAMPUSES){
-        
-        return action.campuses //this feels wrong
+        return action.campuses 
     }
     else{
         return state;

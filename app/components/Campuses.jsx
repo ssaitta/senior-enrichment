@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import store from '../store/index.js'
 import {connect} from 'react-redux'
 
-const mapStateToProps = function(state,ownProps){
+const mapStateToProps = function(state){
     return{
         campuses: state.campuses
     }

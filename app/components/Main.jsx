@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, {fetchCampuses} from '../store/index.js'
+import store, {fetchCampuses, fetchStudents} from '../store/index.js'
 import { Route, Switch, Link } from 'react-router-dom';
 
 import Campuses from './Campuses'
@@ -11,8 +11,13 @@ import Navigation from './Navigation'
 export default class Main extends Component {
 
     componentDidMount() {
+        //fetch all campuses thunk
         const campusesThunk = fetchCampuses()
         store.dispatch(campusesThunk)
+
+        //fetch all students thunk
+        const studentsThunk = fetchStudents()
+        store.dispatch(studentsThunk)
     }
 
     render() {
