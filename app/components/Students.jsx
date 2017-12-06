@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 
-const Campuses = (props)=>{
+
+
+const Students = (props)=>{
     return (
         <div>
         All Students view
@@ -8,3 +10,5 @@ const Campuses = (props)=>{
 
     )
 }
+
+export default Students

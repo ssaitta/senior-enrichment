@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 export default function Navigation(props){
     return(
         <div className="nav-bar">
-            <button className='nav-item'>Home</button>
-            <button className='nav-item'>Students</button>
+            <Link className='nav-item' to='/campuses'>Campus</Link>
+            <Link className='nav-item' to='/students'>Students</Link>
         </div>
     )
 }
