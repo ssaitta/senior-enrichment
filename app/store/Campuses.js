@@ -6,9 +6,10 @@ const GET_CAMPUSES = 'GET_CAMPUSES'
 //ACTION CREATORS
 export function getCampuses(campuses){
    const action = {
-        type: GET_CAMPUSES
+        type: GET_CAMPUSES,
+        campuses: campuses
         }
-    return assertFunctionTypeAnnotation
+    return action
 }
 
 //THUNKS
@@ -17,8 +18,7 @@ export function fetchCampuses(){
         return axios.get('/api/campuses')
             .then(res=>res.data)
             .then(campuses=>{
-                return
-                dispatch(getCampuses)
+                dispatch(getCampuses(campuses))
             })
             .catch(err=>console.log(err.message))
     }
@@ -28,7 +28,8 @@ export function fetchCampuses(){
 
 export default function CampusesReducer(state = [],action){
     if(action.type === GET_CAMPUSES){
-        return Object.assign({},state,[action.campuses]) //if this works come back an turn into spread syntax
+        
+        return action.campuses //this feels wrong
     }
     else{
         return state;

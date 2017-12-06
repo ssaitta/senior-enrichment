@@ -1,31 +1,16 @@
 import React, {Component} from 'react'
-import store, {fetchCampuses} from '../store/index.js'
+import store from '../store/index.js'
 import {connect} from 'react-redux'
-import axios from 'axios'
 
-// export function Component(props){
-//     constructor(){
-//         super();
-//         this.state ={
-//             campuses: []
-//         }
-//     }
-
-//     componentDidMount(){
-//         axios.get('./api/campuses')
-//             .then(res=>res.data)
-//             .then(campuses=>{
-//                 this.setState({campuses})
-//             })
-
-//     }
-
-//     render(){
+const mapStateToProps = function(state,ownProps){
+    return{
+        campuses: state.campuses
+    }
+}
 
 export function Campuses(props){
-
-    const campuses = props.campuses
-
+    
+    const {campuses} = props
     return(
         <div className="Campuses">
             <h1>Welcome to Sunnydale High!</h1>
@@ -42,10 +27,5 @@ export function Campuses(props){
     )
 }
 
-const mapStateToProps = function(state){
-    return{
-        campuses: state.campuses
-    }
-}
 
 export default connect(mapStateToProps)(Campuses)

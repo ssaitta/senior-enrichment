@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import store from './store/index.js'
 import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-console.log(store.getState())
 
 import Main from './components/main'
 
