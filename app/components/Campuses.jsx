@@ -18,9 +18,11 @@ export function Campuses(props){
             <section className="Campus-features">
             {campuses.map(campus =>(
                 <div key={campus.id} className="CampusImages">
-                    <h3 className="CampusName"><span>{campus.name}</span></h3>
-                    <img src={campus.imageUrl}/>
-                    <p>{campus.description}</p>
+                    <Link to={`/campuses/${campus.id}`}>
+                        <h3 className="CampusName"><span>{campus.name}</span></h3>
+                        <img src={campus.imageUrl}/>
+                        <p>{campus.description}</p>
+                    </Link>
                 </div>
             ))}
             </section>    

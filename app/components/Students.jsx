@@ -29,10 +29,16 @@ export function Students(props) {
                             return (
                                 <tr key={student.id} className="Student-row">
                                     <td>{student.id}</td>
-                                <Link to={`/students/${student.id}`}>
-                                    <td>{student.name}</td>
-                                </Link>
-                                    <td>{student.campus.name}</td>
+                                    <td>
+                                        <Link to={`/students/${student.id}`}>
+                                        {student.name}
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <Link to={`/campuses/${student.campusId}`}>
+                                        {student.campus.name}
+                                        </Link>
+                                    </td>
                                     <td>x</td>
                                 </tr>
                             )
