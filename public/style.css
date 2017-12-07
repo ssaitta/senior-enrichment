@@ -15,6 +15,10 @@ h1 {
     padding: 10px;
 }
 
+img{
+    height: 250px;
+}
+
 header {
     display: flex;
     padding: 10px; 
@@ -120,9 +124,6 @@ CampusImages > a{
     width: 40%; 
 }
 
-.CampusImages > img{
-    height: 250px;
-}
 
 /* Students page Table */
 
