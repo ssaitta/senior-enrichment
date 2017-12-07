@@ -13,18 +13,20 @@ router.get('/', (req,res,next)=>{
 })
 
 router.get('/:studentId',(req,res,next)=>{
-    return Students.findById(req.params.studentId)
+    return Students.findById(req.params.studentId,{
+        include: Campuses
+    })
     .then(foundStudent=>res.json(foundStudent))
     .catch(next)
 })
 
-router.get('/campus/:campusId',(req,res,next)=>{
-    return Students.findAll({
-        where:{campusId: req.params.campusId}
-    })
-    .then(foundStudents=>res.json(foundStudents))
-    .catch(next)
-})
+// router.get('/campus/:campusId',(req,res,next)=>{
+//     return Students.findAll({
+//         where:{campusId: req.params.campusId}
+//     })
+//     .then(foundStudents=>res.json(foundStudents))
+//     .catch(next)
+// })
 
 router.post('/',(req,res,next)=>{
     return Students.create({

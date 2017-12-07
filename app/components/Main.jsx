@@ -6,6 +6,7 @@ import Campuses from './Campuses'
 import Students from './Students'
 import Footer from './Footer'
 import Navigation from './Navigation'
+import singleStudent from './SingleSudent'
 
 
 export default class Main extends Component {
@@ -18,6 +19,7 @@ export default class Main extends Component {
         //fetch all students thunk
         const studentsThunk = fetchStudents()
         store.dispatch(studentsThunk)
+
     }
 
     render() {
@@ -30,8 +32,9 @@ export default class Main extends Component {
                    <Navigation/>
                 </header>
                 <Switch>
-                    <Route path="/students" component={Students} />
-                    <Route path="/campuses" component={Campuses} />
+                    <Route exact path="/students" component={Students} />
+                    <Route exact path="/campuses" component={Campuses} />
+                    <Route path="/students/:student.id" component={singleStudent} />
                 </Switch>
                 <Footer />
             </div>
