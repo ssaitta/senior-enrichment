@@ -1,6 +1,7 @@
 import React from 'react'
 import store from '../store/index.js'
 import {connect} from 'react-redux'
+import {Route, Switch, Link } from 'react-router-dom'
 
 const mapStateToProps = function(state){
     return{

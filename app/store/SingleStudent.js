@@ -13,9 +13,9 @@ export function getStudent(student){
 }
 
 //THUNK CREATOR
-export function fetchStudentById(){
-    return function thunk(dispath){
-        return axios.get(`./api/students/${studentId}`) //not so sure about this
+export function fetchStudentById(studentId){
+    return function thunk(dispatch){
+        return axios.get(`./api/students/${studentId}`)
             .then(res=>res.data)
             .then(foundStudent =>{
                 dispatch(getStudent(foundStudent))
@@ -26,7 +26,7 @@ export function fetchStudentById(){
 }
 
 //REDUCER
-export default function SingleStudentReducer(state = {}, action){
+export default function SingleStudent(state = {}, action){
     if(action.type===GET_STUDENT){
         return action.student
     }
