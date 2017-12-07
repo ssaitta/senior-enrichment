@@ -11,7 +11,9 @@ router.get('/', (req, res, next)=>{
 })
 
 router.get('/:campusId', (req,res,next)=>{
-    return Campuses.findById(req.params.campusId)
+    return Campuses.findById(req.params.campusId,{
+        include: Students
+    })
     .then(foundCampus=>res.json(foundCampus))
     .catch(next)
 })

@@ -22,6 +22,11 @@ header {
     height: 3.2%;
 }
 
+a{
+    color: inherit;
+    text-decoration:none;
+}
+
 #main{
     padding-left:0;
     color: rgb(255, 157, 21);

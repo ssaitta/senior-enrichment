@@ -13,13 +13,21 @@ class SingleStudent extends Component{
     }
     
     render(){
-        const student = this.props.student
-        let CampusName = "fillerCampus"
-        let CampusId = "1"
-            if(this.props.student.campus){
-                CampusName = this.props.student.campus.name
-                CampusId = this.props.student.campus.id
-            }
+        const {student} = this.props
+
+        if(!this.props.student.campus){
+            return <div>This student hates every part of our beautiful campus</div>
+        }
+        
+        const CampusName = this.props.student.campus.name
+        const CampusId = this.props.student.campus.id
+        // let CampusName = "fillerCampus"
+        // let CampusId = "1"
+        //     if(this.props.student.campus){
+        //         CampusName = this.props.student.campus.name
+        //         CampusId = this.props.student.campus.id
+        //     }
+
 
  
         return(
@@ -57,7 +65,6 @@ class SingleStudent extends Component{
     
     
 const mapStateToProps = function(state){
-    console.log('state: ',state)
     return{
         student: state.student
     }

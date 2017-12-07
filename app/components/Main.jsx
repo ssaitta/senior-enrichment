@@ -7,6 +7,7 @@ import Students from './Students'
 import Footer from './Footer'
 import Navigation from './Navigation'
 import SingleSudent from './SingleSudent'
+import SingleCampus from './SingleCampus'
 
 
 export default class Main extends Component {
@@ -32,9 +33,9 @@ export default class Main extends Component {
                 </header>
                 <Switch>
                     <Route path="/students/:studentId" component={SingleSudent} />
+                    <Route path="/campuses/:campusId" component={SingleCampus} />
                     <Route exact path="/students" component={Students} />
                     <Route exact path="/campuses" component={Campuses} />
-                    {/*<Route path="/campuses/:campuses" component={singleCampuses} />*/}
                 </Switch>
                 <Footer />
             </div>

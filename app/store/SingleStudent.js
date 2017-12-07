@@ -26,7 +26,7 @@ export function fetchStudentById(studentId){
 }
 
 //REDUCER
-export default function SingleStudent(state = {}, action){
+export default function SingleStudentReducer(state = {}, action){
     if(action.type===GET_STUDENT){
         return action.student
     }

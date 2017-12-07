@@ -2,6 +2,7 @@ import { combineReducers, createStore, applyMiddleware } from 'redux'
 import campuses from './Campuses'
 import students from './Students'
 import student from './SingleStudent'
+import campus from './SingleCampus'
 import loggingMiddleware from 'redux-logger'; // https://github.com/evgenyrodionov/redux-logger
 import thunkMiddleware from 'redux-thunk'; // https://github.com/gaearon/redux-thunk
 
@@ -25,7 +26,8 @@ import thunkMiddleware from 'redux-thunk'; // https://github.com/gaearon/redux-t
         // newCampus,  //create a new campus
         campuses, //, //get all campuses
         students, //get all students
-        student //get one student
+        student, //get one student
+        campus //get one campus
       })
       
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggingMiddleware))
@@ -37,6 +39,7 @@ export default store
 export * from './Campuses'
 export * from './Students'
 export * from './SingleStudent'
+export * from './SingleCampus'
 // export * from Students
 // export * from Footer
 // export * from Navigation 
