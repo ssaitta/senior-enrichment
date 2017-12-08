@@ -11,9 +11,6 @@ const Campuses = db.define('campuses',{
     },
     imageUrl:{
         type: Sequelize.STRING,
-        // get(){
-        //     return `../../api/campuses/${this.id}/image`
-        // }
         defaultValue: 'https://upload.wikimedia.org/wikipedia/en/4/44/Welcome_to_Sunnydale_%28Buffy_screenshot%29.jpg'
 
     },

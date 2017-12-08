@@ -8,6 +8,8 @@ import Footer from './Footer'
 import Navigation from './Navigation'
 import SingleSudent from './SingleSudent'
 import SingleCampus from './SingleCampus'
+import NewCampus from './NewCampus'
+import NewStudent from './NewStudent'
 
 
 export default class Main extends Component {
@@ -32,6 +34,8 @@ export default class Main extends Component {
                    <Navigation/>
                 </header>
                 <Switch>
+                    <Route exact path="/campuses/newCampus" component={NewCampus}/>
+                    <Route exact path="/students/newStudent" component={NewStudent}/>
                     <Route path="/students/:studentId" component={SingleSudent} />
                     <Route path="/campuses/:campusId" component={SingleCampus} />
                     <Route exact path="/students" component={Students} />

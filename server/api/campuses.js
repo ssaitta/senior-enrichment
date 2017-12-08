@@ -21,10 +21,11 @@ router.get('/:campusId', (req,res,next)=>{
 router.post('/',(req,res,next)=>{
     return Campuses.create({
         name: req.body.name,
-        imageUrl: req.body.imageUrl,
+        imageUrl: req.body.imageUrl||undefined,
         description: req.body.description
     })
-    .then(createdStudent=>res.status(201).send(createdStudent))
+    //.then(createdCampus=>console.log(createdCampus))
+    .then((createdCampus)=>res.status(201).send(createdCampus))
     .catch(next)
 })
 

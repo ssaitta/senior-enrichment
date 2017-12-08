@@ -15,6 +15,9 @@ export function Campuses(props){
     return(
         <div className="Campuses">
             <h1>Welcome to Sunnydale High!</h1>
+                <Link to={`/campuses/newCampus`} className="AddACampusButton">
+                Build a campus feature
+                </Link>
             <section className="Campus-features">
             {campuses.map(campus =>(
                 <div key={campus.id} className="CampusImages">
@@ -25,7 +28,7 @@ export function Campuses(props){
                     </Link>
                 </div>
             ))}
-            </section>    
+            </section> 
         </div>
     )
 }
