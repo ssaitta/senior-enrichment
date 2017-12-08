@@ -43,7 +43,6 @@ class UpdateStudent extends Component {
             CampusId = student.campusId
         }
         
-        console.log("this.state: ",this.state)
         console.log("updatedStudent: ",updatedStudent)
         return (
             <form onSubmit={(e) => this.props.handleSubmit(e, studentId, updatedStudent)}>

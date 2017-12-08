@@ -72,7 +72,7 @@ export default function StudentsReducer(state = [], action){
         return [...state.students,action.student]
     }
     else if(action.type === UPDATE_STUDENT){
-        return state.students.map((student)=>{
+        return state.map((student)=>{
             if(+student.id === +action.student.id){
                 return action.student
             }

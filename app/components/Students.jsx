@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { fetchStudents} from '../store/index.js'
+import store, { fetchStudents } from '../store/index.js'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -10,6 +10,7 @@ class Students extends Component {
         //fetch all students thunk
         const studentsThunk = fetchStudents()
         store.dispatch(studentsThunk)
+   
     }
 
     render() {
@@ -31,6 +32,7 @@ class Students extends Component {
                         <th></th>
                     </tr>
             {students.map(student => {
+                if(student){
                 return (
                     <tr key={student.id} className="Student-row">
                         <td>{student.id}</td>
@@ -44,13 +46,14 @@ class Students extends Component {
                                 <Link to={`/campuses/${student.campusId}`}>
                                     {student.campus.name}
                                 </Link>
-                                : ""
+                                : null
                             }
                         </td>
                         <td>x</td>
                     </tr>
-                )
-            })}
+                )}
+                })}
+            
                 </tbody>
                 </table>
 
@@ -63,7 +66,7 @@ class Students extends Component {
 
 const mapStateToProps = function (state) {
     return {
-        students: state.students,
+        students: state.students
     }
 }
 
