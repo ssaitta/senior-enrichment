@@ -43,12 +43,5 @@ router.delete('/:campusId',(req,res,next)=>{
     .catch(next)
 })
 
-//I don't think this is working do i need a route for this? I think so. 
-//trying to serve up the images for each campus by campusID. 
-router.get('/:campusId/image', (req,res,next)=>{
-    return Campuses.findById(req.params.campusId)
-    .then(foundCampus=>res.send(foundCampus.imageUrl))
-    .catch(next)
-})
 
 module.exports = router

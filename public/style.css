@@ -149,6 +149,17 @@ CampusImages > a{
     border-collapse: collapse;
 }
 
+.AddAStudentButton{
+    border-radius: 5%;
+    border: black;
+    background-color: rgba(255, 154, 21, 0.822);
+    font-size: 1.2em;
+    color: rgb(105, 31, 31);
+    text-decoration: none;
+    padding: 2px;
+    text-align: center;
+    margin-left: 530px;
+}
 
 th{
     padding: 20px;

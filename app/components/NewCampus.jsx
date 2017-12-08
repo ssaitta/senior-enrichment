@@ -14,8 +14,7 @@ const mapDispatchToProps = function (dispatch) {
         handleSubmit(event,newCampus) {
             event.preventDefault()
             dispatch(createNewCampus(newCampus))
-            this.history.push('/campuses')
-            //to redirect, but also need a refresh
+            this.history.push('/campuses') //to redirect
         }
     }
 
@@ -35,22 +34,9 @@ class NewCampus extends Component {
 
     }
 
-    componentWillUnmount(){
-        window.location.reload() //to refesh the add to show new data? but it looks terrible
-    }
 
     handleChange(event,stateproperty) {
-        // const stateproperty = event.target.name
-        // this.setState({stateproperty: event.target.value})//can't get this to work
-        console.log(this.state)
-        switch(stateproperty){
-            case 'name':
-            return this.setState({name: event.target.value})
-            case 'imageUrl':
-            return this.setState({imageUrl: event.target.value})
-            case 'description':
-            return this.setState({description: event.target.value})
-        }
+        this.setState({[event.target.name]: event.target.value})
     }
 
     render() {
@@ -64,7 +50,8 @@ class NewCampus extends Component {
                     <input 
                     type="text" 
                     value={this.state.name} 
-                    onChange={(e)=>this.handleChange(e,'name')}
+                    onChange={this.handleChange}
+                 
                     name='name'
                     ></input>
                 </div>
@@ -73,7 +60,8 @@ class NewCampus extends Component {
                     <input 
                     type="text" 
                     value={this.state.imageUrl} 
-                    onChange={(e)=>this.handleChange(e,'imageUrl')}
+                    onChange={this.handleChange}
+                   
                     name='imageUrl'
                     ></input>
                 </div>
@@ -82,7 +70,8 @@ class NewCampus extends Component {
                     <input 
                     type="text" 
                     value={this.state.description} 
-                    onChange={(e)=>this.handleChange(e,'description')}
+                    onChange={this.handleChange}
+                    
                     name='description'
                     ></input>
                 </div>

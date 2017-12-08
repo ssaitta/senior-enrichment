@@ -1,5 +1,5 @@
-import React from 'react'
-import store from '../store/index.js'
+import React, {Component} from 'react'
+import store, {fetchCampuses} from '../store/index.js'
 import {connect} from 'react-redux'
 import {Route, Switch, Link } from 'react-router-dom'
 
@@ -9,9 +9,16 @@ const mapStateToProps = function(state){
     }
 }
 
-export function Campuses(props){
+class Campuses extends Component {
     
-    const {campuses} = props
+    componentDidMount() {
+        //fetch all campuses thunk
+        const campusesThunk = fetchCampuses()
+        store.dispatch(campusesThunk)
+    }
+
+    render(){
+    const {campuses} = this.props
     return(
         <div className="Campuses">
             <h1>Welcome to Sunnydale High!</h1>
@@ -30,7 +37,7 @@ export function Campuses(props){
             ))}
             </section> 
         </div>
-    )
+    )}
 }
 
 

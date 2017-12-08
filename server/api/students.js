@@ -20,13 +20,6 @@ router.get('/:studentId',(req,res,next)=>{
     .catch(next)
 })
 
-// router.get('/campus/:campusId',(req,res,next)=>{
-//     return Students.findAll({
-//         where:{campusId: req.params.campusId}
-//     })
-//     .then(foundStudents=>res.json(foundStudents))
-//     .catch(next)
-// })
 
 router.post('/',(req,res,next)=>{
     return Students.create({

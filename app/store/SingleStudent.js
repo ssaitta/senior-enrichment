@@ -15,7 +15,7 @@ export function getStudent(student){
 //THUNK CREATOR
 export function fetchStudentById(studentId){
     return function thunk(dispatch){
-        return axios.get(`./api/students/${studentId}`)
+        return axios.get(`/api/students/${studentId}`)
             .then(res=>res.data)
             .then(foundStudent =>{
                 dispatch(getStudent(foundStudent))

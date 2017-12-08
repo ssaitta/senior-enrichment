@@ -18,7 +18,7 @@ class SingleCampus extends Component{
         }
 
         const students = this.props.campus.students //is an array
-        console.log(students)
+
         return(
             <div className="SingleCampusPage">
             <h1>{campus.name}</h1>
@@ -29,7 +29,8 @@ class SingleCampus extends Component{
             <br/>
             <section>
                 <p>Some of the students you might find here!</p>
-                {students.map(student=>(
+                {
+                    students.map(student=>(
                     <ul key={student.id} className="CampusesStudentList">
                         <Link to={`/students/${student.id}`}>
                             <li>{student.name}</li>

@@ -14,25 +14,22 @@ class SingleStudent extends Component{
     
     render(){
         const {student} = this.props
-
+        let CampusName
+        let CampusId
+        
         if(!this.props.student.campus){
-            return <div>This student hates every part of our beautiful campus</div>
+            CampusName = ""
+            CampusId = ""
+        }
+        else{
+            CampusName = this.props.student.campus.name
+            CampusId = this.props.student.campus.id
         }
         
-        const CampusName = this.props.student.campus.name
-        const CampusId = this.props.student.campus.id
-        // let CampusName = "fillerCampus"
-        // let CampusId = "1"
-        //     if(this.props.student.campus){
-        //         CampusName = this.props.student.campus.name
-        //         CampusId = this.props.student.campus.id
-        //     }
-
-
- 
         return(
             <div className="SingleStudentPage">
             <h1>{student.name}</h1>
+            <Link to={`/students/${student.id}/updateStudent`} className="AddAStudentButton">Edit this student</Link>
             <section className="Students-Info">
                 <table className="SingleStudent-table">
                     <tbody>
