@@ -15,7 +15,7 @@ class Students extends Component {
 
     render() {
         const { students } = this.props
-
+    
         return (
         <div className="Students-page">
             <h1>Our Students</h1>
@@ -43,8 +43,8 @@ class Students extends Component {
                         </td>
                         <td>
                             {student.campusId ?
-                                <Link to={`/campuses/${student.campusId}`}>
-                                    {student.campus.name}
+                                <Link to={`/campuses/${student.campusId}`}> 
+                                    {student.campusId}
                                 </Link>
                                 : null
                             }
@@ -67,6 +67,7 @@ class Students extends Component {
 const mapStateToProps = function (state) {
     return {
         students: state.students
+
     }
 }
 

@@ -24,7 +24,6 @@ router.post('/',(req,res,next)=>{
         imageUrl: req.body.imageUrl||undefined,
         description: req.body.description
     })
-    //.then(createdCampus=>console.log(createdCampus))
     .then((createdCampus)=>res.status(201).send(createdCampus))
     .catch(next)
 })

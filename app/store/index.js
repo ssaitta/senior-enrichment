@@ -16,8 +16,6 @@ import student from './SingleStudent'
     students, //get all students
     campus, //get one campus
     student
-    //, //get one student
-  //  updateStudent //update an existing student
   })
       
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggingMiddleware))
