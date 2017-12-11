@@ -27,11 +27,11 @@ class SingleStudent extends Component{
         }
         
         return(
-            <div className="SingleStudentPage">
+            <div className="Students-page">
             <h1>{student.name}</h1>
             <Link to={`/students/${student.id}/updateStudent`} className="AddAStudentButton">Edit this student</Link>
-            <section className="Students-Info">
-                <table className="SingleStudent-table">
+            <section className="Students-all">
+                <table className="Student-table">
                     <tbody>
                         <tr>
                             <th>Name</th>
@@ -40,7 +40,7 @@ class SingleStudent extends Component{
                             <th>Favorite Place on Campus</th>
                             <th></th>
                         </tr>
-                            <tr className="Student-Info-row">
+                            <tr className="Student-row">
                                 <td>{student.name}</td>
                                 <td>{student.email}</td>
                                 <td>{student.gpa}</td>

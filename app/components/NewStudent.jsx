@@ -28,6 +28,7 @@ class NewStudent extends Component {
             <form onSubmit={(e) => this.props.handleSubmit(e, newStudent)}>
                 <div>
                     <label>First Name</label>
+                    <br/>
                     <input
                         value={this.state.first_name}
                         type="text"
@@ -36,6 +37,7 @@ class NewStudent extends Component {
                 </div>
                 <div>
                     <label>Last Name</label>
+                    <br/>
                     <input
                         value={this.state.last_name}
                         type="text"
@@ -44,6 +46,7 @@ class NewStudent extends Component {
                 </div>
                 <div>
                     <label>Email</label>
+                    <br/>
                     <input
                         value={this.state.email}
                         type="text"
@@ -52,6 +55,7 @@ class NewStudent extends Component {
                 </div>
                 <div>
                     <label>GPA</label>
+                    <br/>
                     <input
                         type="text"
                         name="gpa"
@@ -59,6 +63,7 @@ class NewStudent extends Component {
 
                         onChange={this.handleChange}></input>
                 </div>
+                <br/>
                 <button type="submit">Submit</button>
             </form>
         )

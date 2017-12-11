@@ -47,6 +47,7 @@ class NewCampus extends Component {
             <form onSubmit={(e)=>this.props.handleSubmit(e,newCampus)}>
                 <div>
                     <label>name</label>
+                    <br/>
                     <input 
                     type="text" 
                     value={this.state.name} 
@@ -57,6 +58,7 @@ class NewCampus extends Component {
                 </div>
                 <div>
                 <label>imageUrl</label>
+                <br/>
                     <input 
                     type="text" 
                     value={this.state.imageUrl} 
@@ -67,6 +69,7 @@ class NewCampus extends Component {
                 </div>
                 <div>
                     <label>description</label>
+                    <br/>
                     <input 
                     type="text" 
                     value={this.state.description} 
@@ -75,6 +78,7 @@ class NewCampus extends Component {
                     name='description'
                     ></input>
                 </div>
+                <br/>
                 <button type="submit">Submit</button>
             </form>
         )

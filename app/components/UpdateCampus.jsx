@@ -23,14 +23,7 @@ class UpdateStudent extends Component {
     }
 
     handleChange(event){
-        if(event.target.name==="campusId"){
-               const chosenCampus =  this.props.campuses.find((campus)=>{return campus.name===event.target.value})
-                this.setState({[event.target.name]:chosenCampus.id})
-            }
-            else{
-                this.setState({[event.target.name]: event.target.value})
-                console.log(event.target.value)
-            }
+        this.setState({[event.target.name]: event.target.value})
     }
 
     render() {
@@ -54,10 +47,7 @@ class UpdateStudent extends Component {
         return (
             <form onSubmit={(e) => this.props.handleSubmit(e, studentId, updatedStudent)}>
                 <div>
-                    <br/>
-                    
                     <label>First Name</label>
-                    <br/>
                     <input
                         value={this.state.first_name}
                         type="text"
@@ -67,7 +57,6 @@ class UpdateStudent extends Component {
                 </div>
                 <div>
                     <label>Last Name</label>
-                    <br/>
                     <input
                         value={this.state.last_name}
                         type="text"
@@ -77,7 +66,6 @@ class UpdateStudent extends Component {
                 </div>
                 <div>
                     <label>Email</label>
-                    <br/>
                     <input
                         value={this.state.email}
                         type="text"
@@ -87,7 +75,6 @@ class UpdateStudent extends Component {
                 </div>
                 <div>
                     <label>GPA</label>
-                    <br/>
                     <input
                         value={this.state.gpa}
                         type="text"
@@ -95,21 +82,23 @@ class UpdateStudent extends Component {
                         placeholder={`${student.gpa}`}
                         onChange={this.handleChange}></input>
                 </div>
+                {/*}
                 <div>
                     <label>Favorite place on campus</label>
                     <select
-                    defaultValue={this.state.campusId}
+                    value={this.state.campusId}
                     name="campusId"
                     onChange={this.handleChange}>
                     {campuses.map((campus)=>{
                         return(
-                            <option key={campus.id}>{campus.name}</option>
-                         
+                            (+campus.id===+student.campusId)?
+                            <option key={campus.id} selected>{campus.id}</option>
+                            : <option key={campus.id}>{campus.id}</option>
                         )
                     })}
                     </select>
-                </div>
-                <br/>
+                </div>*/}
+           
                 <button type="submit">Submit</button>
             </form>
         )

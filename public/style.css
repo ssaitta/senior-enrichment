@@ -35,6 +35,27 @@ CampusImages > a{
     color: inherit;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 43%;
+}
+
+form > div{
+    padding: 0.5em;
+}
+
+form > button{
+    border-radius: 5%;
+    border: black;
+    background-color: rgba(255, 154, 21, 0.822);
+    font-size: 1.2em;
+    color: rgb(105, 31, 31);
+    text-decoration: none;
+    width: 50%;
+}
+
 #main{
     padding-left:0;
     color: rgb(255, 157, 21);
@@ -127,13 +148,14 @@ CampusImages > a{
 .AddACampusButton{
     border-radius: 5%;
     border: black;
+    display: flex;
     background-color: rgba(255, 154, 21, 0.822);
     font-size: 1.2em;
     color: rgb(105, 31, 31);
     text-decoration: none;
-    width: 240px;
+    width: 16%;
     text-align: center;
-    margin-left: 500px;
+    margin-left: 40%;
 }
 
 /* Students page Table */
@@ -145,12 +167,16 @@ CampusImages > a{
 
 
 .Student-table{
-    margin-left: 350px;
+    display: flex;
+    justify-content: center;
     border-collapse: collapse;
 }
 
 .AddAStudentButton{
     border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    width: 13%;
     border: black;
     background-color: rgba(255, 154, 21, 0.822);
     font-size: 1.2em;
@@ -158,7 +184,7 @@ CampusImages > a{
     text-decoration: none;
     padding: 2px;
     text-align: center;
-    margin-left: 530px;
+    margin-left: 43%;
 }
 
 th{
@@ -175,3 +201,33 @@ td{
 tr{
     border-top: solid 3px rgba(153, 153, 153, 0.116);
 }
+
+/* Single Campus Page */
+
+.SingleCampus {
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    margin: 1.5em;
+    justify-content: center;
+}
+
+.Single-Campus-features{
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+    flex-flow: row wrap;
+    height: 60vh;
+    justify-content: space-evenly;
+}
+
+.SingleCampusImage{
+    padding:10px;
+    display:flex;
+    flex-direction: column;
+    width: 40%; 
+}
+.Single-Campus-features > p{
+    width:70%;
+}
+

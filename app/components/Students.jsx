@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { fetchStudents } from '../store/index.js'
+import store, { fetchStudents, fetchCampuses, destroyStudent } from '../store/index.js'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -10,11 +10,13 @@ class Students extends Component {
         //fetch all students thunk
         const studentsThunk = fetchStudents()
         store.dispatch(studentsThunk)
-   
+        
+        const campusesThunk = fetchCampuses()
+        store.dispatch(campusesThunk)
     }
 
     render() {
-        const { students } = this.props
+        const { students, campuses } = this.props
     
         return (
         <div className="Students-page">
@@ -22,6 +24,7 @@ class Students extends Component {
             <Link to={`/students/newStudent`} className="AddAStudentButton">
                 Add a new student
             </Link>
+            <br/>
             <section className="Students-all">
                 <table className="Student-table">
                 <tbody>
@@ -44,12 +47,16 @@ class Students extends Component {
                         <td>
                             {student.campusId ?
                                 <Link to={`/campuses/${student.campusId}`}> 
-                                    {student.campusId}
+                                {(this.props.campuses.find((campus)=>{return campus.id===student.campusId}))?
+                                this.props.campuses.find((campus)=>{return campus.id===student.campusId}).name: student.campusId
+                                 }
                                 </Link>
                                 : null
                             }
                         </td>
-                        <td>x</td>
+                        <td>
+                        <button onClick={(e)=>{this.props.deleteStudent(e, student.id, student)}}>x</button>
+                        </td>
                     </tr>
                 )}
                 })}
@@ -66,10 +73,18 @@ class Students extends Component {
 
 const mapStateToProps = function (state) {
     return {
-        students: state.students
+        students: state.students,
+        campuses: state.campuses
 
     }
 }
 
+const mapDispatchToProps = function(dispatch){
+    return{
+        deleteStudent(event, id, student){
+            dispatch(destroyStudent(id, student))
+        }
+    }
+}
 
-export default connect(mapStateToProps)(Students)
+export default connect(mapStateToProps, mapDispatchToProps)(Students)

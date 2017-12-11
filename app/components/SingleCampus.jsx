@@ -20,10 +20,10 @@ class SingleCampus extends Component{
         const students = this.props.campus.students //is an array
 
         return(
-            <div className="SingleCampusPage">
+            <div className="SingleCampus">
             <h1>{campus.name}</h1>
-            <section className="CampusPage">
-                <img src={campus.imageUrl}/>
+            <section className="Single-Campus-features">
+                <img src={campus.imageUrl} className="SingleCampusImage"/>
                 <p className="CampusDescription">{campus.description}</p>
             </section>
             <br/>

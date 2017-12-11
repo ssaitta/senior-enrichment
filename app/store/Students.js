@@ -4,6 +4,7 @@ import axios from 'axios'
 const GET_STUDENTS = 'GET_STUDENTS'
 const CREATE_STUDENT = "CREATE_STUDENT"
 const UPDATE_STUDENT = 'UPDATE_STUDENT'
+const DESTROY_STUDENT = "DESTROY_STUDENT"
 
 //ACTION CREATORS  
 export function getStudents(students){
@@ -25,6 +26,14 @@ export function createStudent(student){
 export function updateStudent(student){
     const action = {
         type: UPDATE_STUDENT,
+        student: student
+    }
+    return action
+}
+
+export function destroy_student(student){
+    const action = {
+        type: DESTROY_STUDENT,
         student: student
     }
     return action
@@ -62,6 +71,17 @@ export function putStudent(id, updatedStudent){
     }
 }
 
+export function destroyStudent(id, studentToDestroy){
+    return function thunk(dispatch){
+        return axios.delete(`api/students/${id}`,studentToDestroy)
+            .then(res=>res.data)
+            .then(()=>{
+                dispatch(destroy_student(studentToDestroy))
+            })
+            .catch(err=>console.log(err.message))
+    }
+}
+
 //REDUCER
 
 export default function StudentsReducer(state = [], action){
@@ -80,6 +100,12 @@ export default function StudentsReducer(state = [], action){
                 return student
             }
         })
+    }
+    else if(action.type === DESTROY_STUDENT){
+        return(
+            [...state.slice(0,state.indexOf(action.student)),
+            ...state.slice(state.indexOf(action.student)+1)]
+        )
     }
     else{
         return state;
